@@ -1,9 +1,12 @@
-configuration: Release
-
-before_build:
-  - nuget restore
-
+branches:
+  only:
+    - AppVeyor
+version: 1.0.{build}
+nuget:
+  project_feed: true
 build:
-  verbosity: minimal
-  project: CSharpVerbalExpressions.sln
+  project: VerbalExpressions.sln
   publish_nuget: true
+  publish_nuget_symbols: true
+  include_nuget_references: true
+  verbosity: minimal
