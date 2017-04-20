@@ -4,6 +4,8 @@ branches:
 version: 1.0.{build}
 nuget:
   project_feed: true
+before_build:
+  - nuget restore
 build:
   project: VerbalExpressions.sln
   publish_nuget: true
