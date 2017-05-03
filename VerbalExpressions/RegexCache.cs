@@ -9,7 +9,7 @@ namespace CSharpVerbalExpressions
         private Key key;
         private Regex regex;
         
-        private class Key
+        private class Key : IEquatable<Key>
         {
             public Key(string pattern, RegexOptions options)
             {
@@ -22,10 +22,14 @@ namespace CSharpVerbalExpressions
             
             public override bool Equals(object obj)
             {
-                var key = obj as Key;
-                return key != null &&
-                       key.Pattern == this.Pattern &&
-                       key.Options == this.Options;
+                return Equals(obj as Key);
+            }
+
+            public bool Equals (Key other)
+            {
+                return other != null &&
+                       other.Pattern == this.Pattern &&
+                       other.Options == this.Options;
             }
 
             public override int GetHashCode()

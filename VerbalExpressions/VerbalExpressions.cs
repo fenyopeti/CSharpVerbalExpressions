@@ -37,9 +37,9 @@ namespace CSharpVerbalExpressions
         #region Private Members
 
         private readonly RegexCache regexCache = new RegexCache();
-        private StringBuilder _prefixes = new StringBuilder();
-        private StringBuilder _source = new StringBuilder();
-        private StringBuilder _suffixes = new StringBuilder();
+        private readonly StringBuilder _prefixes = new StringBuilder();
+        private readonly StringBuilder _source = new StringBuilder();
+        private readonly StringBuilder _suffixes = new StringBuilder();
 
         private RegexOptions _modifiers = RegexOptions.Multiline;
         
@@ -105,16 +105,6 @@ namespace CSharpVerbalExpressions
         #endregion Helpers
 
         #region Expression Modifiers
-
-        public VerbalExpressions Add(string value)
-        {
-            if (object.ReferenceEquals(value, null))
-            {
-                throw new ArgumentNullException("value");
-            }
-
-            return Add(value, true);
-        }
 
         public VerbalExpressions Add(CommonRegex commonRegex)
         {
