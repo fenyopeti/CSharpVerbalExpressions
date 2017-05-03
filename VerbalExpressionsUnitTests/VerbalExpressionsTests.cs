@@ -38,26 +38,14 @@ namespace VerbalExpressionsUnitTests
             Assert.IsTrue(isMatch, "Ooops, should match anything");
         }
 
+
         [Test]
         public void Replace_WhenCalledImmediatelyAfteInitialize_ShouldNotThrowNullReferenceException()
         {
-            //Arrange
             var verbEx = VerbalExpressions.DefaultExpression;
             string value = "value";
-            bool hasThrownNullReferenceEx = false;
 
-            //Act
-            try
-            {
-                verbEx.Replace(value);
-            }
-            catch (NullReferenceException)
-            {
-                hasThrownNullReferenceEx = true;
-            }
-
-            //Assert
-            Assert.IsFalse(hasThrownNullReferenceEx);
+            Assert.DoesNotThrow(() => verbEx.Replace(value));
         }
 
         [Test]
