@@ -62,5 +62,10 @@ namespace VerbalExpressionsUnitTests
             Assert.IsTrue(verbEx.Test(testMe), "The URL is incorrect");
         }
 
+        [Test]
+        public void CommonRegex_getValue()
+        {
+            Assert.AreEqual(CommonRegex.Email.Value, 2);
+        }
     }
 }
